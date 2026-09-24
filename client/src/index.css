@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-outfit bg-dark-bg text-text-light overflow-x-hidden;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-block px-8 py-3 rounded-full font-semibold cursor-pointer transition-all duration-300;
+    }
+
+    .btn-primary {
+        @apply bg-gradient-to-r from-primary-gold via-yellow-200 to-primary-gold text-darker-bg shadow-lg shadow-primary-gold/30 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-gold/40;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border-2 border-primary-gold text-primary-gold hover:bg-primary-gold hover:text-darker-bg;
+    }
+
+    .glass-card {
+        @apply bg-card-bg backdrop-blur-lg border border-glass-border rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-1 hover:border-primary-gold;
+    }
+
+    .section-title {
+        @apply text-4xl text-center mb-4 bg-gradient-to-r from-primary-gold via-yellow-200 to-primary-gold bg-clip-text text-transparent font-bold;
+    }
+
+    .section-subtitle {
+        @apply text-center text-text-dim mb-12 text-lg;
+    }
+
+    .fullscreen-modal-overlay {
+        padding: 0 !important;
+    }
+
+    .fullscreen-modal {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Standard Modal Styles */
+    .modal-overlay {
+        @apply fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in;
+    }
+
+    .modal-container {
+        @apply bg-[#121418] w-full max-w-lg rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden;
+    }
+
+    .modal-header {
+        @apply p-6 border-b border-white/10 flex justify-between items-center relative z-10;
+    }
+
+    .modal-title {
+        @apply text-xl font-bold text-white;
+    }
+
+    .modal-close-btn {
+        @apply text-gray-400 hover:text-white transition-colors;
+    }
+
+    .modal-content {
+        @apply p-6 space-y-4 relative z-10;
+    }
+
+    .modal-footer {
+        @apply pt-4 flex gap-3;
+    }
+
+    .modal-label {
+        @apply block text-sm text-gray-400 mb-1;
+    }
+
+    .modal-input {
+        @apply w-full bg-[#0B0D10] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-gold/50 transition-colors placeholder:text-gray-700;
+    }
+
+    .modal-btn-cancel {
+        @apply flex-1 py-3 rounded-xl border border-white/10 text-gray-400 hover:bg-white/5 hover:text-white transition-colors font-medium;
+    }
+
+    .modal-btn-primary {
+        @apply flex-1 py-3 rounded-xl bg-primary-gold text-black font-bold hover:bg-yellow-400 transition-colors shadow-lg shadow-primary-gold/20 flex items-center justify-center gap-2;
+    }
+
+    .branch-passcode-input {
+        font-family: 'Outfit', 'Noto Sans Bengali', sans-serif;
+    }
+
+    .branch-passcode-input::placeholder {
+        color: #9ca3af;
+        opacity: 1;
+    }
+
+    .branch-passcode-input:-webkit-autofill,
+    .branch-passcode-input:-webkit-autofill:hover,
+    .branch-passcode-input:-webkit-autofill:focus,
+    .branch-passcode-input:-webkit-autofill:active {
+        -webkit-text-fill-color: #ffffff !important;
+        caret-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #0b0d10 inset !important;
+        box-shadow: 0 0 0 1000px #0b0d10 inset !important;
+        transition: background-color 9999s ease-in-out 0s;
+    }
+}
+
+@layer utilities {
+    .app-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(96, 165, 250, 0.72) rgba(15, 23, 42, 0.35);
+    }
+
+    .app-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .app-scrollbar::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.38);
+        border-radius: 9999px;
+    }
+
+    .app-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(59, 130, 246, 0.75), rgba(37, 99, 235, 0.9));
+        border-radius: 9999px;
+        border: 1px solid rgba(147, 197, 253, 0.35);
+    }
+
+    .app-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgba(96, 165, 250, 0.95), rgba(37, 99, 235, 0.98));
+    }
+
+    .reveal {
+        @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+    }
+
+    .reveal.active {
+        @apply opacity-100 translate-y-0;
+    }
+
+    .stagger-delay-1 {
+        transition-delay: 0.1s;
+    }
+
+    .stagger-delay-2 {
+        transition-delay: 0.2s;
+    }
+
+    .stagger-delay-3 {
+        transition-delay: 0.3s;
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .animate-blob {
+        animation: blob 10s infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+
+    @keyframes blob {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(120vh) translateX(-10px) rotate(0deg);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 0.8;
+        }
+
+        90% {
+            opacity: 0.6;
+        }
+
+        100% {
+            transform: translateY(-20vh) translateX(10px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .animate-float-up {
+        animation: floatUp linear infinite;
+    }
+
+    @keyframes bubblePulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.55;
+        }
+
+        50% {
+            transform: scale(1.12);
+            opacity: 0.9;
+        }
+    }
+
+    .animate-float-around {
+        animation: bubblePulse 8s ease-in-out infinite;
+    }
+
+    .bubble-glow {
+        border: 1.5px solid rgba(239, 182, 34, 0.35);
+        background: radial-gradient(circle at 35% 35%, rgba(239, 182, 34, 0.28), rgba(239, 182, 34, 0.12) 45%, rgba(239, 182, 34, 0) 70%);
+        box-shadow:
+            0 0 24px rgba(239, 182, 34, 0.25),
+            0 0 64px rgba(239, 182, 34, 0.18);
+        backdrop-filter: blur(1px);
+    }
+
+
+    .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(239, 182, 34, 0.5) rgba(18, 20, 24, 0.5);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(18, 20, 24, 0.5);
+        border-radius: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(239, 182, 34, 0.5);
+        border-radius: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(239, 182, 34, 0.8);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+    }
+}
